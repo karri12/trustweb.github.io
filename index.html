@@ -3,53 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RATSA YEDUKONDALU MEMORIAL EDUCATIONAL AND CHARITABLE TRUST </title>
+    <title>RATSA YEDUKONDALU MEMORIAL EDUCATIONAL AND CHARITABLE TRUST</title>
 
     <style>
-        /* HEADER WITH LOGO */
-.header-container {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-}
-
-.logo {
-    height:80px;
-    width:auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .logo {
-        height:65px;
-    }
-    .title-box h1 {
-        font-size:22px;
-    }
-    .title-box p {
-        font-size:14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-container {
-        flex-direction:column;
-        text-align:center;
-        gap:8px;
-    }
-    .logo {
-        height:55px;
-    }
-    .title-box h1 {
-        font-size:20px;
-    }
-    .title-box p {
-        font-size:13px;
-    }
-}
-
+        * { margin:0; padding:0; box-sizing:border-box; }
 
         body {
             font-family: Arial, sans-serif;
@@ -57,88 +14,153 @@
             overflow-x:hidden;
         }
 
+        /* HEADER */
         header {
             background:gold;
-            color:black;
             padding:20px;
-            text-align:center;
-            animation: fadeIn 2s ease-in-out;
-
+            animation: fadeIn 1.5s ease-in-out;
         }
 
-        nav {
+        .header-container {
+            display:flex;
+            align-items:center;
+            gap:15px;
+            flex-wrap:wrap;
+        }
+
+        /* LOGO */
+        .logo {
+            height:80px;
+        }
+
+        /* TITLE */
+        .title-box h1 {
+            font-size:26px;
+            color:black;
+        }
+
+        .title-box p {
+            color:black;
+            font-size:15px;
+        }
+
+        /* MENU BUTTON IN HEADER RIGHT */
+        .menu-container {
+            margin-left:auto;
+        }
+
+        #menu-toggle { display:none; }
+
+        .menu-btn {
+            background:black;
+            color:yellow;
+            padding:10px 20px;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        /* DROPDOWN MENU (MOBILE) */
+        .nav-links {
+            display:none;
+            flex-direction:column;
             background:#0055a5;
-            
-            padding:10px;
             text-align:center;
-            animation: fadeIn 2.5s ease-in-out;
         }
 
-        nav a {
+        .nav-links a {
             color:white;
-            margin:0 15px;
+            padding:12px;
             text-decoration:none;
             font-weight:bold;
-            display:inline-block;
-            transition:0.3s ease;
         }
 
-        nav a:hover {
-            transform:scale(1.1);
+        .nav-links a:hover {
+            background:#003f7a;
         }
 
-        /* HERO IMAGE WITH ZOOM ANIMATION */
+        /* SHOW WHEN TOGGLED */
+        #menu-toggle:checked ~ .nav-links {
+            display:flex;
+        }
+
+        /* DESKTOP MENU */
+        @media (min-width:769px) {
+            .menu-btn { display:none; }
+
+            .nav-links {
+                display:flex !important;
+                flex-direction:row;
+                justify-content:flex-end;
+                padding:12px 20px;
+                gap:25px;
+                background:#0055a5;
+            }
+
+            .nav-links a {
+                background:none;
+                padding:0;
+                color:white;
+            }
+
+            .nav-links a:hover {
+                transform:scale(1.1);
+            }
+        }
+
+        /* MOBILE HEADER */
+        @media (max-width:480px) {
+            .header-container { text-align:center; justify-content:center; }
+            .menu-container { margin-left:0; width:100%; text-align:center; }
+            .logo { height:60px; }
+            .title-box h1 { font-size:20px; }
+            .title-box p { font-size:13px; }
+        }
+
+        /* HERO */
         .hero {
             width:100%;
-            height:350px;
+            height:320px;
             background:url('trust003.jpg') no-repeat center/cover;
             display:flex;
             justify-content:center;
             align-items:center;
-            color:white;
             font-size:2rem;
             font-weight:bold;
+            color:white;
             text-shadow:2px 2px 4px black;
             animation: zoomHero 8s ease-in-out infinite alternate;
         }
 
-        /* SECTIONS FADE + SLIDE ANIMATION */
+        /* SECTIONS */
         .section {
             padding:40px 20px;
-            background:url('trust001.jpg');
             margin:20px;
+            background:white;
             border-radius:8px;
+            animation: slideUp 1.2s ease forwards;
             opacity:0;
-            transform:translateY(30px);
-            animation: slideUp 1.5s ease forwards;
+            transform:translateY(20px);
         }
-
-        /* Delay for each section */
-        #about { animation-delay: 0.5s; color:white; }
-        #programs { animation-delay: 0.8s; }
-        #impact { animation-delay: 1.1s; color:white; }
-        #contact { animation-delay: 1.4s; }
-
         .section h2 {
             color:#003366;
-            margin-bottom:15px;
+            margin-bottom:10px;
         }
 
-        /* CARDS */
+        /* PROGRAM CARDS */
         .programs {
             display:flex;
             gap:20px;
             flex-wrap:wrap;
         }
-
         .card {
             background:#e9eef5;
-            padding:20px;
             flex:1 1 260px;
+            padding:20px;
             border-radius:8px;
-            transition:0.4s ease;
+            transition:0.4s;
         }
-
         .card:hover {
             transform:translateY(-8px);
             box-shadow:0 8px 20px rgba(0,0,0,0.2);
@@ -150,9 +172,8 @@
             width:100%;
             padding:15px;
             margin:10px 0;
-            border-radius:5px;
             border:1px solid #ccc;
-            font-size:1rem;
+            border-radius:5px;
         }
 
         .btn {
@@ -162,7 +183,6 @@
             border:none;
             border-radius:5px;
             cursor:pointer;
-            font-size:1rem;
             transition:0.3s;
         }
 
@@ -177,89 +197,74 @@
             text-align:center;
             padding:20px;
             margin-top:20px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero { height:250px; font-size:1.4rem; text-align:center; }
-            .programs { flex-direction:column; }
-            .card { flex:1 1 100%; }
-            nav a { display:block; margin:8px 0; }
         }
 
         /* ANIMATIONS */
-        @keyframes fadeIn {
-            from { opacity:0; }
-            to { opacity:1; }
-        }
-
-        @keyframes slideUp {
-            from { opacity:0; transform:translateY(30px); }
-            to { opacity:1; transform:translateY(0); }
-        }
-
-        @keyframes zoomHero {
-            from { transform:scale(1); }
-            to { transform:scale(1.06); }
-        }
+        @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+        @keyframes slideUp { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+        @keyframes zoomHero { from{transform:scale(1);} to{transform:scale(1.05);} }
     </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="header-container">
+
         <img src="trust03.jpg" alt="Trust Logo" class="logo">
+
         <div class="title-box">
-            <h1>RATSA YEDUKONDALU MEMORIAL EDUCATIONAL AND CHARITABLE TRUST </h1>
+            <h1>RATSA YEDUKONDALU MEMORIAL EDUCATIONAL AND CHARITABLE TRUST</h1>
             <p>Serving Communities • Creating Impact</p>
         </div>
+
+        <!-- MENU BUTTON ON RIGHT -->
+        <div class="menu-container">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-btn">MENU ☰</label>
+        </div>
+
     </div>
 </header>
 
-
-<nav>
+<!-- NAV LINKS DROPDOWN -->
+<div class="nav-links">
     <a href="#about">About</a>
     <a href="#programs">Programs</a>
     <a href="#impact">Impact</a>
     <a href="#contact">Contact</a>
-</nav>
+</div>
 
+<!-- HERO -->
 <div class="hero">
     Empowering Rural Education & Welfare
 </div>
 
+<!-- ABOUT -->
 <section class="section" id="about">
     <h2>About Us</h2>
-    <p>RATSA Trusts focuses on education, health, women empowerment, and rural development programs.</p>
+    <p>RATSA Trust focuses on education, health, women empowerment, and rural development programs.</p>
 </section>
 
+<!-- PROGRAMS -->
 <section class="section" id="programs">
     <h2>Our Programs</h2>
+
     <div class="programs">
-        <div class="card">
-            <h3>Education Support</h3>
-            <p>Scholarships, bags, books & digital classrooms.</p>
-        </div>
-
-        <div class="card">
-            <h3>Healthcare Camps</h3>
-            <p>Medical camps, blood donation & awareness drives.</p>
-        </div>
-
-        <div class="card">
-            <h3>Women Empowerment</h3>
-            <p>Skill training & self-help group development.</p>
-        </div>
+        <div class="card"><h3>Education Support</h3><p>Scholarships, books & digital classrooms.</p></div>
+        <div class="card"><h3>Healthcare Camps</h3><p>Medical camps, blood donation drives.</p></div>
+        <div class="card"><h3>Women Empowerment</h3><p>Training & skill development programs.</p></div>
     </div>
 </section>
 
+<!-- IMPACT -->
 <section class="section" id="impact">
     <h2>Our Impact</h2>
-    <p>10,000+ beneficiaries through education, health & development programs.</p>
+    <p>10,000+ beneficiaries through education, health & rural development initiatives.</p>
 </section>
 
+<!-- CONTACT -->
 <section class="section contact" id="contact">
     <h2>Contact Us</h2>
     <input type="text" placeholder="Your Name">
@@ -268,6 +273,7 @@
     <button class="btn">Send Message</button>
 </section>
 
+<!-- FOOTER -->
 <footer>
     © 2025 RATSA Trusts. All Rights Reserved.
 </footer>
